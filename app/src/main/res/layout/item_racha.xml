@@ -39,7 +39,7 @@
             android:id="@+id/tvTiempoDedicado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tiempo total: 0 horas"
+            android:text=""
             android:textSize="14sp"
             android:textColor="@color/color_button_text"
             android:layout_marginStart="16dp"/>

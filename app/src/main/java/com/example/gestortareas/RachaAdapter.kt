@@ -38,7 +38,12 @@ class RachaAdapter(private val listaRachas: List<Racha>) : RecyclerView.Adapter<
 
         val horas = racha.tiempo / 60
         val minutos = racha.tiempo % 60
-        holder.tvTiempoDedicado.text = "${horas}h${minutos}m" // Mostrar el tiempo
+        val suma = horas + minutos
+        if (suma != 0) {
+            holder.tvTiempoDedicado.text = "${horas}h${minutos}m"
+        }// Mostrar el tiempo}
+
+
 
         // Mostrar registros completados / total
         holder.tvRegistros.text = "${racha.registrosCompletados} / ${racha.totalRegistros} "

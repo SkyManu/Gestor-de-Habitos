@@ -72,14 +72,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Duración:" />
+                    android:text="Hora de Inicio" />
 
                 <TextView
                     android:id="@+id/texto_duracion"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Hora de Inicio" />
+                    android:text="Hora de Fin" />
             </TableRow>
 
             <TableRow android:padding="16dp">
