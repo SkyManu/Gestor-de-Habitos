@@ -413,8 +413,6 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
         val rachas = mutableListOf<Racha>()
         val db = this.readableDatabase
 
-          // Obtener el ID del usuario autenticado
-
         val query = """
         SELECT r.$COLUMN_RACHA_ID, r.$COLUMN_HABITO_ID_RACHA, r.$COLUMN_RACHA_ACTUAL, r.$COLUMN_RACHA_MAXIMA, h.$COLUMN_NOMBRE_HABITO, h.$COLUMN_TIPO_HABITO
         FROM $TABLE_RACHAS r
@@ -439,8 +437,11 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
                     tiempoDedicado = obtenerTiempoDedicadoPorHabito(habitoId)
                 }
 
-                // Agregar la racha a la lista, incluyendo el tiempo dedicado si es un hábito de tipo "tiempo"
-                rachas.add(Racha(rachaId, habitoId, rachaActual, rachaMaxima, nombreHabito, tiempoDedicado))
+                // Obtener el conteo de registros completados y totales para este hábito
+                val (registrosCompletados, totalRegistros) = obtenerConteoRegistrosPorHabito(habitoId)
+
+                // Agregar la racha a la lista con el nuevo conteo de registros
+                rachas.add(Racha(rachaId, habitoId, rachaActual, rachaMaxima, nombreHabito, tiempoDedicado, registrosCompletados, totalRegistros))
             } while (cursor.moveToNext())
         }
 
@@ -449,6 +450,40 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME
 
         return rachas
     }
+
+    // Método para obtener el número total de registros y cuántos de ellos están completados para un hábito
+    fun obtenerConteoRegistrosPorHabito(habitoId: Int): Pair<Int, Int> {
+        val db = this.readableDatabase
+
+        // Contar el número total de registros del hábito
+        val cursorTotal = db.rawQuery(
+            "SELECT COUNT(*) AS total FROM $TABLE_REGISTRO_DIARIO WHERE $COLUMN_HABITO_ID_REGISTRO = ?",
+            arrayOf(habitoId.toString())
+        )
+        var totalRegistros = 0
+        if (cursorTotal.moveToFirst()) {
+            totalRegistros = cursorTotal.getInt(cursorTotal.getColumnIndexOrThrow("total"))
+        }
+        cursorTotal.close()
+
+        // Contar el número de registros completados del hábito
+        val cursorCompletados = db.rawQuery(
+            "SELECT COUNT(*) AS completados FROM $TABLE_REGISTRO_DIARIO WHERE $COLUMN_HABITO_ID_REGISTRO = ? AND $COLUMN_COMPLETADO = 1",
+            arrayOf(habitoId.toString())
+        )
+        var registrosCompletados = 0
+        if (cursorCompletados.moveToFirst()) {
+            registrosCompletados = cursorCompletados.getInt(cursorCompletados.getColumnIndexOrThrow("completados"))
+        }
+        cursorCompletados.close()
+
+        db.close()
+
+        // Retornar el par de valores (completados, total)
+        return Pair(registrosCompletados, totalRegistros)
+    }
+
+
 
     // Método para obtener el tiempo total dedicado por un hábito
     fun obtenerTiempoDedicadoPorHabito(habitoId: Int): Int {

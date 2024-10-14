@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:text="Racha: 0 días"
             android:textSize="16sp"
-            android:textColor="@color/color_button_text"
+            android:textColor="@color/color_button_background"
             android:layout_marginStart="16dp"/>
 
         <!-- Tiempo dedicado total -->
@@ -43,5 +43,16 @@
             android:textSize="14sp"
             android:textColor="@color/color_button_text"
             android:layout_marginStart="16dp"/>
+
+        <!-- Registros completados / total -->
+        <TextView
+            android:id="@+id/tvRegistros"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0/0 completados "
+            android:textSize="14sp"
+            android:textColor="@color/color_button_text"
+            android:layout_marginStart="16dp"
+            android:gravity="end" /> <!-- Alinear a la derecha -->
     </LinearLayout>
 </androidx.cardview.widget.CardView>

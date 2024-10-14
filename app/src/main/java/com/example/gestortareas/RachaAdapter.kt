@@ -12,7 +12,9 @@ data class Racha(
     val rachaActual: Int,
     val rachaMaxima: Int,
     val nombreHabito: String, // Añadir el nombre del hábito
-    val tiempo: Int // Tiempo dedicado total
+    val tiempo: Int,
+    val registrosCompletados: Int = 0,  // Nuevo campo
+    val totalRegistros: Int = 0 // Total de registros
 )
 
 class RachaAdapter(private val listaRachas: List<Racha>) : RecyclerView.Adapter<RachaAdapter.RachaViewHolder>() {
@@ -21,6 +23,7 @@ class RachaAdapter(private val listaRachas: List<Racha>) : RecyclerView.Adapter<
         val tvNombreHabito: TextView = itemView.findViewById(R.id.tvNombreHabito)
         val tvRachaActual: TextView = itemView.findViewById(R.id.tvRachaActual)
         val tvTiempoDedicado: TextView = itemView.findViewById(R.id.tvTiempoDedicado) // Añadir TextView para el tiempo
+        val tvRegistros: TextView = itemView.findViewById(R.id.tvRegistros) // TextView para registros completados / total
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RachaViewHolder {
@@ -35,8 +38,10 @@ class RachaAdapter(private val listaRachas: List<Racha>) : RecyclerView.Adapter<
 
         val horas = racha.tiempo / 60
         val minutos = racha.tiempo % 60
+        holder.tvTiempoDedicado.text = "${horas}h${minutos}m" // Mostrar el tiempo
 
-        holder.tvTiempoDedicado.text = "${horas}h ${minutos}m" // Mostrar el tiempo
+        // Mostrar registros completados / total
+        holder.tvRegistros.text = "${racha.registrosCompletados} / ${racha.totalRegistros} "
     }
 
     override fun getItemCount(): Int {
