@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="12dp"
+        tools:layout_editor_absoluteX="-68dp"
+        tools:layout_editor_absoluteY="-43dp">
+
+        <EditText
+            android:id="@+id/edit_text_nombre_tarea"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre de la tarea"
+            tools:ignore="MissingConstraints" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            tools:ignore="MissingConstraints">
+
+            <!-- Fila 1: Fecha de Inicio y Fin -->
+            <TableRow>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Del:" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Hasta:" />
+            </TableRow>
+
+            <TableRow
+                android:gravity="start"
+                android:hapticFeedbackEnabled="false"
+                android:padding="16dp">
+
+                <Button
+                    android:id="@+id/boton_fecha_inicio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/color_button_background"
+                    android:text="Fecha de Inicio" />
+
+                <Button
+                    android:id="@+id/boton_fecha_fin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/color_button_background"
+                    android:layout_weight="1"
+                    android:text="Fecha de Fin" />
+            </TableRow>
+
+            <!-- Fila 2: Duración -->
+            <TableRow android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Duración:" />
+
+                <TextView
+                    android:id="@+id/texto_duracion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Hora de Inicio" />
+            </TableRow>
+
+            <TableRow android:padding="16dp">
+
+                <Button
+                    android:id="@+id/boton_hora_inicio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="60dp"
+                    android:backgroundTint="@color/color_button_background"
+                    android:layout_weight="1"
+                    android:text="Hora de Inicio" />
+
+                <Button
+                    android:id="@+id/boton_hora_fin"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/color_button_background"
+                    android:layout_weight="1"
+                    android:text="Hora de Fin" />
+            </TableRow>
+
+            <!-- Fila 3: Repetir Todos los Días -->
+            <TableRow
+                android:layout_height="74dp"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Repetir:" />
+
+                <Spinner
+                    android:id="@+id/spinner_repetir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/opciones_repetir" />
+            </TableRow>
+
+            <!-- Nueva Fila 4: Seleccionar tipo de tarea -->
+            <TableRow
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tipo de tarea:" />
+
+                <Spinner
+                    android:id="@+id/spinner_tipo_tarea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:entries="@array/tipo_tarea_opciones" />
+            </TableRow>
+        </TableLayout>
+
+        <Button
+            android:id="@+id/boton_crear_tarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_button_background"
+            android:textColor="@color/color_button_text"
+            android:text="Crear tarea" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

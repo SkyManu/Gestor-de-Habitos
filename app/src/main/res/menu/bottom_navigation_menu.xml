@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_tareas"
+        android:icon="@drawable/ic_tarea"
+        android:title="Tareas" />
+    <item
+        android:id="@+id/navigation_vista"
+        android:icon="@drawable/ic_calendario"
+        android:title="Vista" />
+    <item
+        android:id="@+id/navigation_informe"
+        android:icon="@drawable/ic_racha"
+        android:title="Racha" />
+</menu>

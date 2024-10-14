@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">GestorTareas</string>
+    <string name="crear_tarea">Crear nueva tarea</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="opciones_repetir">
+        <item>Todos los días</item>
+        <item>Personalizar</item>
+    </string-array>
+    <string-array name="tipo_tarea_opciones">
+        <item>Check</item>
+        <item>Estimar tiempo</item>
+    </string-array>
+    <string-array name="vista_opciones">
+        <item>Día</item>
+        <item>Semana</item>
+        <item>Mes</item>
+    </string-array>
+</resources>

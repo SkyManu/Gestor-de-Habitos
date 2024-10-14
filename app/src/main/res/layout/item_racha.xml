@@ -1,0 +1,47 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    android:backgroundTint="@color/card_background_darker_gray"> <!-- Fondo ligeramente más claro que el negro -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Nombre del hábito -->
+        <TextView
+            android:id="@+id/tvNombreHabito"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nombre del Hábito"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_button_text"/>
+
+        <!-- Racha actual -->
+        <TextView
+            android:id="@+id/tvRachaActual"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Racha: 0 días"
+            android:textSize="16sp"
+            android:textColor="@color/color_button_text"
+            android:layout_marginStart="16dp"/>
+
+        <!-- Tiempo dedicado total -->
+        <TextView
+            android:id="@+id/tvTiempoDedicado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tiempo total: 0 horas"
+            android:textSize="14sp"
+            android:textColor="@color/color_button_text"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

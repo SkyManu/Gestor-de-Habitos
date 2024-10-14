@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores del tema oscuro -->
+    <color name="md_theme_dark_primary">#201d23</color> <!-- Fondo oscuro general -->
+    <color name="md_theme_dark_onPrimary">#FFFFFF</color> <!-- Texto blanco en fondo oscuro -->
+    <color name="md_theme_dark_surface">#121212</color> <!-- Superficie oscura -->
+    <color name="md_theme_dark_onSurface">#FFFFFF</color> <!-- Texto blanco en superficie oscura -->
+    <color name="md_theme_dark_error">#B3261E</color> <!-- Rojo error -->
+    <color name="md_theme_dark_onError">#FFFFFF</color> <!-- Texto blanco sobre error -->
+    <color name="card_background_darker_gray">#28242c</color>
+
+
+
+    <!-- Colores para botones y elementos interactivos -->
+    <color name="color_button_background">#FF5722</color> <!-- Fondo naranja fuerte para botones -->
+    <color name="color_button_text">#FFFFFF</color> <!-- Texto blanco en botones -->
+
+    <!-- Colores para elementos seleccionados -->
+    <color name="color_selected">#FF9800</color> <!-- Naranja claro para elementos seleccionados -->
+
+    <!-- Colores para CheckBoxes -->
+    <color name="color_checkbox_checked">#FF5722</color> <!-- Checkbox marcado (naranja fuerte) -->
+    <color name="color_checkbox_unchecked">#FFCCBC</color> <!-- Checkbox desmarcado (naranja claro) -->
+
+    <!-- Color por defecto de los botones -->
+    <color name="color_button_default">#d8d4d4</color>
+</resources>
